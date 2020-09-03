@@ -5,7 +5,6 @@ require('dotenv').config()
 const JwtStragegy = require('passport-jwt').Strategy
 const ExtractJwt = require('passport-jwt').ExtractJwt
 const mongoose = require('mongoose')
-// const User = mongoose.model('User')
 const db = require('../models')
 
 
@@ -19,7 +18,7 @@ options.secretOrKey = process.env.JWT_SECRET
 
 module.exports = (passport) => {
     passport.use(new JwtStragegy(options, (jwt_payload, done) => {
-        User.findById(jwt_payload.id)
+        db.User.findById(jwt_payload.id)
         .then(user => {
             if(user) {
                 return done(null, user)
