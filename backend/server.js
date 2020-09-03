@@ -14,9 +14,13 @@ app.use(express.json())
 app.use(passport.initialize())
 require('./config/passport')(passport)
 
+const users = require('./routes/api/users')
+
 app.get('/', (req, res) => {
     res.status(200).json({ message: 'Backend 🍑'})
 })
+
+app.use('/api/users' , users)
 
 app.listen(port, () => {
     console.log(`Listening to the smooth sounds of ${port}`)

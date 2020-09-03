@@ -5,7 +5,7 @@ require('dotenv').config()
 const JwtStragegy = require('passport-jwt').Strategy
 const ExtractJwt = require('passport-jwt').ExtractJwt
 const mongoose = require('mongoose')
-const User = mongoose.model('User')
+// const User = mongoose.model('User')
 
 
 // object literal containing options to control
