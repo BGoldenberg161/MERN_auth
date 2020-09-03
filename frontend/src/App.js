@@ -1,10 +1,14 @@
 import React from 'react';
 import './App.css';
+import Welcome from'./components/Welcome'
+import About from'./components/About'
+import Footer from'./components/Footer'
 
 function App() {
   return (
     <div className="App">
-      <h1>MERN Auth Frontend</h1>
+      <Welcome />
+      <Footer />
     </div>
   );
 }
