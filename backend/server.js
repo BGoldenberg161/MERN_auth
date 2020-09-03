@@ -10,6 +10,10 @@ app.use(cors())
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
+//passport middleware
+app.use(passport.initialize())
+require('./config/passport')(passport)
+
 app.get('/', (req, res) => {
     res.status(200).json({ message: 'Backend 🍑'})
 })
