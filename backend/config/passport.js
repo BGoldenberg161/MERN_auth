@@ -6,6 +6,7 @@ const JwtStragegy = require('passport-jwt').Strategy
 const ExtractJwt = require('passport-jwt').ExtractJwt
 const mongoose = require('mongoose')
 // const User = mongoose.model('User')
+const db = require('../models')
 
 
 // object literal containing options to control
