@@ -7,7 +7,12 @@ const ExtractJwt = require('passport-jwt').ExtractJwt
 const mongoose = require('mongoose')
 const User = mongoose.model('User')
 
+
+// object literal containing options to control
+// how the token is extracted from the request or verified
 const options = {}
+// jwtFromRequest {required} function that accepts a request as
+// the only param and returns the JWT either as a string or null
 options.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken()
 options.secretOrKey = process.env.JWT_SECRET
 
