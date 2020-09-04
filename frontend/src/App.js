@@ -38,7 +38,7 @@ function App() {
   const nowCurrentUser = (userData) => {
     console.log('nowCurrentUser is working...')
     setCurrentUser(userData)
-    setIsAuthenticated(false)
+    setIsAuthenticated(true)
   }
 
   const handleLogout =() => {
