@@ -18,26 +18,27 @@ const Register = () => {
         setEmail(e.target.value)
     }
     
-        const handlePassword = (e) => {
-            setPassword(e.target.value)
-        }
-    
-        const handleConfirmPassword = (e) => {
-            setConfirmPassword(e.target.value)
-        }
-    
-        const handleSubmit = (e) => {
-            e.preventDefault()
-            if(password === confirmPassword){
-                const newUser = { name, email, password }
+    const handlePassword = (e) => {
+        setPassword(e.target.value)
+    }
 
-                axios.post(`${REACT_APP_SERVER_URL}/api/users/register`, newUser)
-                .then(response => {
-                    setRedirect(true)
-                })
-                .catch(err => console.log(err))
-            }
+    const handleConfirmPassword = (e) => {
+        setConfirmPassword(e.target.value)
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        if(password === confirmPassword){
+            const newUser = { name, email, password }
+
+            axios.post(`${REACT_APP_SERVER_URL}/api/users/register`, newUser)
+            .then(response => {
+                console.log(response)
+                setRedirect(true)
+            })
+            .catch(err => console.log(err))
         }
+    }
     
     if(redirect) return <Redirect to="/login" />
 
@@ -46,7 +47,7 @@ const Register = () => {
             <div className="col-md-7 offset-md-3">
                 <div className="card card-body">
                     <h2 className="py-2">Register</h2>
-                    <form action="/ideas" method="POST" onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit}>
                         <div className="form-group">
                             <label htmlFor="name">Name</label>
                             <input type="text" name="name" value={name} onChange={handleName} className="form-control"></input>
